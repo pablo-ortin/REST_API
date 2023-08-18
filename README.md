@@ -42,11 +42,11 @@ This project is a RESTful API built using [FastAPI](https://fastapi.tiangolo.com
 1. Begin by navigating to the 'db.py' file to ensure that your database connection is properly configured and functioning.
 2. When utilizing AWS RDS for MySQL, it's crucial to conduct a thorough assessment to ensure seamless connectivity. Begin by verifying that the Public Accessibility setting is configured as 'YES'. 
 
-![PHP](images/aws1.png)
+![PHP](images/aws1.jpg)
 
 Subsequently, navigate to the security group settings, access the inbound rules section, and proceed to generate a new rule. This new rule should be based on the IP address retrieved from http://checkip.amazonaws.com/.
 
-![PHP](images/aws2.png)
+![PHP](images/aws2.jpg)
 3. Define the desired schemas for your tables. In this scenario, we will be creating three tables: 'Employee,' 'Job,' and 'Department.'
 
 
@@ -65,7 +65,7 @@ ALTER TABLE employee ADD CONSTRAINT fk_employee_job FOREIGN KEY (job_id) REFEREN
  ```
 2. We aspire to establish a table schema resembling the following::
 
-![PHP](images/tables_structure.png)
+![PHP](images/tables_structure.jpg)
 
 ### Retrieve Employee Information
 1. Please examine the 'get_endpoints.py' file to observe the query executions that gather valuable information, instrumental in making significant decisions for the company.
@@ -80,4 +80,4 @@ uvicorn app:app --reload.
 ```
 This ensures that your API is continuously monitored and any issues are promptly identified and resolved.
 
-![PHP](images/uvicorn.png)
+![PHP](images/uvicorn.jpg)
