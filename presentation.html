@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee API using FastAPI</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #4caf50; /* Green color */
+        }
+
+        h2 {
+            color: #4caf50; /* Green color */
+        }
+
+        ul, ol {
+            color: #ffffff;
+        }
+
+        code {
+            color: #ff8205d3;
+            background-color: #1a1a1a;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #272727;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        strong {
+            color: #4caf50; /* Green color */
+        }
+
+        p {
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #4caf50; /* Green color */
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Employee API using FastAPI</h1>
+
+<h2>Introduction</h2>
+
+<p>Welcome to the Employee API built using FastAPI. This API provides various endpoints to retrieve insightful data about employees and departments. It offers a robust and efficient way to query employee information based on specific criteria.</p>
+
+<h2>Technologies Used</h2>
+
+<ul>
+    <li><strong>FastAPI</strong>: A modern, fast, web framework for building APIs with Python 3.7+ type hints.</li>
+    <li><strong>SQLAlchemy</strong>: A powerful and flexible Object-Relational Mapping (ORM) library for database interactions.</li>
+    <li><strong>Starlette</strong>: A lightweight asynchronous framework for building high-performance web applications.</li>
+</ul>
+
+<h2>API Endpoints</h2>
+
+<h3>Create Tables </h3>
+
+<ul>
+    <li><strong>POST /create_tables</strong></li>
+    <ul>
+        <li>This endpoint initializes the necessary database schema to store information about departments, job titles, and employees. 
+            By sending a POST request to this endpoint, the required tables are generated in the database if they don't already exist.
+            If the tables already exist, a response will indicate that the tables are already present.</li>
+        <li>Example Request: <code>/create_tables</code></li>
+        
+    </ul>
+</ul>
+
+<h3>Ingest Data </h3>
+
+<ul>
+    <li><strong>POST /ingest_data</strong></li>
+    <ul>
+        <li>Ingests data from CSV files into the corresponding database tables.
+            This endpoint reads CSV files for Department, Employee, and Job data and inserts the data into the respective tables in the database.
+            The CSV files should be located in the "uploads" folder.</li>
+        <li>Example Request: <code>/ingest_data</code></li>
+        
+    </ul>
+</ul>
+
+<h3>Employees by Quarter</h3>
+
+<ul>
+    <li><strong>GET /employees-by-quarter</strong></li>
+    <ul>
+        <li>Retrieves employee count by quarter for each department and job title within a specified year.</li>
+        <li>Example Request: <code>/employees-by-quarter</code></li>
+        <li>Example Response:</li>
+    </ul>
+</ul>
+
+<pre>
+<code>
+[
+    {
+        "department": "Human Resources",
+        "job": "Manager",
+        "Q1": 5,
+        "Q2": 7,
+        "Q3": 6,
+        "Q4": 4
+    },
+    ...
+]
+</code>
+</pre>
+
+<h3>Departments Above Average</h3>
+
+<ul>
+    <li><strong>GET /departments-above-average</strong></li>
+    <ul>
+        <li>Retrieves departments with employee counts above the average employee count across all departments within a specified year.</li>
+        <li>Example Request: <code>/departments-above-average</code></li>
+        <li>Example Response:</li>
+    </ul>
+</ul>
+
+<pre>
+<code>
+[
+    {
+        "id": 3,
+        "department": "Engineering",
+        "hired": 120
+    },
+    ...
+]
+</code>
+</pre>
+
+<h2>Database Configuration</h2>
+
+<ul>
+    <li><strong>Database</strong>: Amazon RDS for MySQL </li>
+    <li><strong>Connection URL</strong>: mysql://user:password@insert-your-database-name.abcdefgh.us-east-1.rds.amazonaws.com:3306/mydatabase</li>
+    <li><strong>ORM</strong>: SQLAlchemy</li>
+</ul>
+
+<h2>Models</h2>
+
+<ul>
+    <li><strong>Department</strong>: Represents a department in the organization.</li>
+    <li><strong>Job</strong>: Represents a job title within the organization.</li>
+    <li><strong>Employee</strong>: Represents an employee with attributes like name, date of hire, department, and job title.</li>
+</ul>
+
+<h2>Usage</h2>
+
+<ol>
+    <li>Ensure you have the required dependencies installed (<code>FastAPI</code>, <code>SQLAlchemy</code>, <code>Starlette</code>, <code>Pandas</code>.).</li>
+    <li>Run the FastAPI application using your preferred server (<code>uvicorn</code>, <code>hypercorn</code>).</li>
+    <li>Access the API documentation at <code>/docs</code> to interact with the endpoints.</li>
+</ol>
+
+<h2>Conclusion</h2>
+
+<p>The Employee API built using FastAPI offers a convenient and efficient way to retrieve and analyze employee data. This API provides valuable insights for HR and management teams.</p>
+
+
+</body>
+
+</html>
